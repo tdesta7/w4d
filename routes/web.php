@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TypeToolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['greeting'=>'Welcome Laravel is cool']);
 });
+
+Route::get('/catagory', function () {
+    return view('catagory-type');
+});
+
+Route::get('/config', function () {
+    return phpinfo();
+});
+
+Route::get('/tools', [TypeToolController::class, 'show']);
+
+
